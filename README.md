@@ -29,6 +29,7 @@ image-processing-cv/
 │   └── image_processor.py
 ├── .gitignore
 ├── requirements.txt
+├── statement.md
 └── README.md
 ```
 
@@ -104,6 +105,41 @@ Example:
 python src\main.py --input input\test.jpg
 ```
 
+## Testing
+
+The project can be tested from the command line.
+
+### Valid Input Test
+
+Command:
+
+```bash
+python src\main.py --input input\sample.jpg.jpg
+```
+
+Expected result:
+
+```text
+Image processing completed successfully!
+Results saved in the output folder.
+```
+
+### Invalid Input Test
+
+Command:
+
+```bash
+python src\main.py --input input\test.jpg
+```
+
+Expected result:
+
+```text
+Error: Could not load image: input\test.jpg
+```
+
+The valid input test verifies the complete image-processing pipeline, while the invalid input test verifies input error handling.
+
 ## Technologies Used
 
 * Python
@@ -113,6 +149,7 @@ python src\main.py --input input\test.jpg
 ## Author
 
 Shubham Pratap Singh
+
 
 
 
