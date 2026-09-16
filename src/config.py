@@ -1,0 +1,2 @@
+OUTPUT_DIR = "output"
+RESIZE_WIDTH = 800

@@ -1,15 +1,9 @@
-import cv2
 import argparse
-import os
 
-from image_processor import (
-    load_image,
-    resize_image,
-    convert_to_grayscale,
-    blur_image,
-    threshold_image,
-    detect_edges
-)
+from image_processor import load_image
+from pipeline import process_image
+from config import OUTPUT_DIR
+from utils import create_output_directory, save_results
 
 
 def main():
@@ -27,25 +21,13 @@ def main():
     args = parser.parse_args()
 
     try:
-        # Create output directory if it does not exist
-        os.makedirs("output", exist_ok=True)
+        create_output_directory(OUTPUT_DIR)
 
-        # Load image
         image = load_image(args.input)
 
-        # Image processing pipeline
-        resized = resize_image(image)
-        gray_image = convert_to_grayscale(resized)
-        blurred = blur_image(gray_image)
-        threshold = threshold_image(blurred)
-        edges = detect_edges(blurred)
+        results = process_image(image)
 
-        # Save results
-        cv2.imwrite("output/resized.jpg", resized)
-        cv2.imwrite("output/grayscale.jpg", gray_image)
-        cv2.imwrite("output/blurred.jpg", blurred)
-        cv2.imwrite("output/threshold.jpg", threshold)
-        cv2.imwrite("output/edges.jpg", edges)
+        save_results(OUTPUT_DIR, *results)
 
         print("\nImage processing completed successfully!")
         print("Results saved in the output folder.")
