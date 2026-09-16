@@ -1,113 +1,31 @@
-# Image Processing and Edge Detection using OpenCV
+## Testing
 
-A simple Computer Vision project that performs basic image processing operations using Python and OpenCV.
+The project includes automated unit tests for the image-processing functions.
 
-## Features
+Run all tests with:
 
+```bash
+python -m unittest discover -s tests -v
+```
+
+Expected result:
+
+```text
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.488s
+
+OK
+```
+
+The tests verify:
+
+* Image loading
 * Image resizing
 * Grayscale conversion
 * Gaussian blur
-* Binary thresholding
+* Thresholding
 * Canny edge detection
-* Command-line execution
-* Automatic output directory creation
-
-## Project Structure
-
-```text
-image-processing-cv/
-├── input/
-│   └── sample.jpg.jpg
-├── output/
-│   ├── resized.jpg
-│   ├── grayscale.jpg
-│   ├── blurred.jpg
-│   ├── threshold.jpg
-│   └── edges.jpg
-├── src/
-│   ├── main.py
-│   └── image_processor.py
-├── .gitignore
-├── requirements.txt
-├── statement.md
-└── README.md
-```
-
-## Requirements
-
-* Python 3.x
-* OpenCV
-* NumPy
-
-## Installation
-
-Create a virtual environment:
-
-```bash
-python -m venv venv
-```
-
-Activate it on Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Install the required packages:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run the Project
-
-```bash
-python src\main.py --input input\sample.jpg.jpg
-```
-
-The processed images will be saved in the `output` folder.
-
-## Processing Pipeline
-
-```text
-Input Image
-    ↓
-Resize
-    ↓
-Grayscale
-    ↓
-Gaussian Blur
-    ↓
-Thresholding
-    ↓
-Canny Edge Detection
-    ↓
-Output Images
-```
-
-## Output
-
-The project generates:
-
-* `resized.jpg` — resized input image
-* `grayscale.jpg` — grayscale version
-* `blurred.jpg` — blurred grayscale image
-* `threshold.jpg` — binary threshold image
-* `edges.jpg` — detected edges using Canny edge detection
-
-## Error Handling
-
-If the specified input image cannot be loaded, the program displays an error message.
-
-Example:
-
-```bash
-python src\main.py --input input\test.jpg
-```
-
-## Testing
-
-The project can be tested from the command line.
 
 ### Valid Input Test
 
@@ -138,18 +56,7 @@ Expected result:
 Error: Could not load image: input\test.jpg
 ```
 
-The valid input test verifies the complete image-processing pipeline, while the invalid input test verifies input error handling.
-
-## Technologies Used
-
-* Python
-* OpenCV
-* NumPy
-
-## Author
-
-Shubham Pratap Singh
-
+The valid input test verifies the complete image-processing pipeline, the invalid input test verifies error handling, and the unit tests verify individual processing functions.
 
 
 
